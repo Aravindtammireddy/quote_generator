@@ -1,0 +1,88 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+.container{
+  margin-top: 10%;
+  padding: 20px;
+
+}
+.box{
+  width: 350px;
+    border: 5px solid rgb(0, 0, 0);
+    margin-top: 5%;
+    margin-left: 40%;
+    /* align-self: center; */
+    background-color: #000000;
+    opacity: 0.8;
+    border-radius: 25px;
+  }
+input{
+  padding: 10px;
+  width: 250px;
+  border-radius: 10px;
+  margin: 20px;
+  font-size: medium;
+  text-align: center;
+  font-style: italic;
+}
+button[type=button]{
+  text-align:center;
+  font-weight: 600;
+  font-size: medium;
+  width: 200px;
+  margin: 20px;
+  
+  padding: 15px;
+  border-radius: 10px;
+  margin-top: 20px;
+  position:relative;
+  text-align: center;
+  
+}
+button[type=submit]{
+  text-align:center;
+  font-weight: 600;
+  font-size: medium;
+  width: 150px;
+  margin: 20px;
+  padding: 15px;
+  border-radius: 10px;
+}
+body{
+  background-image: url("wall.jpg");
+}
