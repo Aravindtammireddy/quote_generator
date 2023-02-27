@@ -56,7 +56,7 @@ export const Login = () => {
         if(phonenumber(phn)){
            x = x.concat(phn);
         }
-        console.log("hello" ,latitude , longitude,phn);
+        console.log("hello" ,latitude , longitude,phn)
         await axios.post('https://quote-generator-5ox7.onrender.com/manual',{latitude : latitude, longitude:longitude , phnnumber : x });
       }
       }

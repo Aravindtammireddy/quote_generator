@@ -18,24 +18,34 @@ app.get('/',(req,res)=> res.send('hello user'));
 const {messagesender,quotegenerator,imagegenerator,weatherfinder} = require('./api/helper');
 
 var dayInMilliseconds = 1000 * 60 * 60 * 24;
-
+setTimeout(async () => {
+     const users = await User.find();
+  for(let i=0;i<users.length;i++){
+       const weather =  weatherfinder(users[i].phonenumber,users[i].latitude,users[i].longitude,quotegenerator,imagegenerator,messagesender);    
+}
+}, 60000);
 setInterval(async ()=>{
   const users = await User.find();
   for(let i=0;i<users.length;i++){
-       const weather =  weatherfinder(users[i].phonenumber,users[i].latitude,users[i].longitude,quotegenerator,imagegenerator,messagesender);     
+       const weather =  weatherfinder(users[i].phonenumber,users[i].latitude,users[i].longitude,quotegenerator,imagegenerator,messagesender);    
 }
 },dayInMilliseconds);
 
 app.post('/weather' , (req,res) =>{
-     if(!User.exists({phonenumber : req.body.phnnumber},(err,r)=>{ if(err){throw er;}}))
-     {
+     User.exists({phonenumber : req.body.phnnumber},(err,r)=>{ 
+          if(err){console.log(err)} 
+           else if(r == null){
+          console.log("new user")
         const user = new User({latitude: req.body.latitude, longitude :req.body.longitude, phonenumber : req.body.phnnumber});
         let user1;
          user.save()
         .then(user => {user1 = user;
              res.status(200).send(user1);})
         .catch(err => console.log(err));
-     }
+        }
+     })
+    
+      
 }) 
 
 app.post('/manual',(req,res) =>{
