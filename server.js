@@ -18,12 +18,7 @@ app.get('/',(req,res)=> res.send('hello user'));
 const {messagesender,quotegenerator,imagegenerator,weatherfinder} = require('./api/helper');
 
 var dayInMilliseconds = 1000 * 60 * 60 * 24;
-setTimeout(async () => {
-     const users = await User.find();
-  for(let i=0;i<users.length;i++){
-       const weather =  weatherfinder(users[i].phonenumber,users[i].latitude,users[i].longitude,quotegenerator,imagegenerator,messagesender);    
-}
-}, 60000);
+
 setInterval(async ()=>{
   const users = await User.find();
   for(let i=0;i<users.length;i++){
