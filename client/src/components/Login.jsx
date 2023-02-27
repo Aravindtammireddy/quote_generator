@@ -41,7 +41,7 @@ export const Login = () => {
           else{
         console.log("hello" ,latitude , longitude, x);
         setregistered(!register);
-        const qt = await axios.post('/weather',{latitude : latitude, longitude:longitude , phnnumber : x });
+        const qt = await axios.post('https://quote-generator-5ox7.onrender.com/weather',{latitude : latitude, longitude:longitude , phnnumber : x });
           } 
       }
 
@@ -56,9 +56,8 @@ export const Login = () => {
         if(phonenumber(phn)){
            x = x.concat(phn);
         }
-        console.log("hello" ,latitude , longitude,phn)
-        setregistered(false);
-        await axios.post('/manual',{latitude : latitude, longitude:longitude , phnnumber : x });
+        console.log("hello" ,latitude , longitude,phn);
+        await axios.post('https://quote-generator-5ox7.onrender.com/manual',{latitude : latitude, longitude:longitude , phnnumber : x });
       }
       }
 
@@ -75,7 +74,7 @@ export const Login = () => {
             </div>
             </form>
             </div>
-           : <div className="inputs">hey check you whatsappp</div> }
+           : <div className="inputs"><h1>Hey you registered for receiving daily notifications</h1></div> }
     </>
   )
 }

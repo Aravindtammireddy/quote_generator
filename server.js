@@ -27,12 +27,15 @@ setInterval(async ()=>{
 },dayInMilliseconds);
 
 app.post('/weather' , (req,res) =>{
-  const user = new User({latitude: req.body.latitude, longitude :req.body.longitude, phonenumber : req.body.phnnumber});
-  let user1;
-  user.save()
+     if(!User.exists({phonenumber : req.body.phnnumber},(err,r)=>{ if(err){throw er;}}))
+     {
+        const user = new User({latitude: req.body.latitude, longitude :req.body.longitude, phonenumber : req.body.phnnumber});
+        let user1;
+         user.save()
         .then(user => {user1 = user;
              res.status(200).send(user1);})
         .catch(err => console.log(err));
+     }
 }) 
 
 app.post('/manual',(req,res) =>{
