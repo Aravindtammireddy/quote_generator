@@ -8,6 +8,7 @@ const request = require('request');
               if (error) { 
                   console.log('Unable to connect to Forecast API'); 
               } 
+              console.log("weather : " , response.body.weather)
              return callback(phonenumber,response.body.weather,callback1,callback2);
             } )  
         }
