@@ -19,7 +19,7 @@ const request = require('request');
             url: 'https://api.ultramsg.com/instance33065/messages/image',
             headers: {'content-type': 'application/x-www-form-urlencoded'},
             form: {
-              token: 'sig3x8mg4adfzhed',
+              token: 'WARNING7ff33Fddet4dd',
               to: phonenumber,
               image: image,
               caption: quote,
