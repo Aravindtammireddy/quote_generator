@@ -46,7 +46,7 @@ const request = require('request');
           request(options, function (error, response, body) {
             if (error) throw new Error(error);
             let quote = body.output;
-            console.log("quote : " , body.output);
+            console.log("quote : " , body);
            return  callback(phonenumber,quote,callback1);
             return quote;
           })
