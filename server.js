@@ -31,7 +31,7 @@ app.post('/weather' , (req,res) =>{
           if(err){console.log(err)} 
            else if(r == null){
           console.log("new user")
-        const user = new User({latitude: req.body.latitude, longitude :req.body.longitude, phonenumber : req.body.phnnumber});
+        const user = new User({latitude: req.body.latitude, longitude : req.body.longitude, phonenumber : req.body.phnnumber});
         let user1;
          user.save()
         .then(user => {user1 = user;
@@ -44,6 +44,7 @@ app.post('/weather' , (req,res) =>{
 }) 
 
 app.post('/manual',(req,res) =>{
+     console.log(`request recieved`)
      const weather =  weatherfinder(req.body.phnnumber,req.body.latitude,req.body.longitude,quotegenerator,imagegenerator,messagesender);
 })
 const PORT = process.env.PORT || 5000;
