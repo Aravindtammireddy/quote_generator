@@ -41,7 +41,7 @@ export const Login = () => {
           else{
         console.log("hello" ,latitude , longitude, x);
         setregistered(!register);
-        const qt = await axios.post('https://quote-generator-5ox7.onrender.com/weather',{latitude : latitude, longitude:longitude , phnnumber : x });
+        const qt = await axios.post('/weather',{latitude : latitude, longitude:longitude , phnnumber : x });
           } 
       }
 
@@ -57,10 +57,10 @@ export const Login = () => {
            x = x.concat(phn);
         }
         console.log("hello" ,latitude , longitude,phn)
-        await axios.post('https://quote-generator-5ox7.onrender.com/manual',{latitude : latitude, longitude:longitude , phnnumber : x });
+        await axios.post('/manual',{latitude : latitude, longitude:longitude , phnnumber : x });
       }
       }
-
+      // https://quote-generator-5ox7.onrender.com
   return (
     <>
       {register?

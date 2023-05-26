@@ -10,21 +10,21 @@ const connectDB = require('./config/db');
 const User = require('./models/User');
 dotenv.config({path : './config/config.env'});
 
-connectDB();
+//connectDB();
 app.use(cors());
 app.use(express.json());
 app.get('/',(req,res)=> res.send('hello user'));
 
 const {messagesender,quotegenerator,imagegenerator,weatherfinder} = require('./api/helper');
 
-var dayInMilliseconds = 1000 * 60 * 60 * 24;
+// var dayInMilliseconds = 1000 * 60 * 60 * 24;
 
-setInterval(async ()=>{
-  const users = await User.find();
-  for(let i=0;i<users.length;i++){
-       const weather =  weatherfinder(users[i].phonenumber,users[i].latitude,users[i].longitude,quotegenerator,imagegenerator,messagesender);    
-}
-},dayInMilliseconds);
+// setInterval(async ()=>{
+//   const users = await User.find();
+//   for(let i=0;i<users.length;i++){
+//        const weather =  weatherfinder(users[i].phonenumber,users[i].latitude,users[i].longitude,quotegenerator,imagegenerator,messagesender);    
+// }
+// },dayInMilliseconds);
 
 app.post('/weather' , (req,res) =>{
      User.exists({phonenumber : req.body.phnnumber},(err,r)=>{ 
